@@ -1,0 +1,16 @@
+packages:
+  - apps/web
+  - apps/mobile
+  - packages/*
+
+# Python services (apps/security-engine, apps/sao-engine) are NOT pnpm packages —
+# they have no package.json and are managed via their own requirements.txt.
+
+# Allow these dependencies to run install/build scripts (pnpm v11 gate).
+allowBuilds:
+  '@prisma/client': true
+  '@prisma/engines': true
+  prisma: true
+  esbuild: true
+  sharp: true
+  unrs-resolver: true

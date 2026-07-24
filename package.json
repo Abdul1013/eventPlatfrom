@@ -1,0 +1,28 @@
+{
+  "name": "eventmerge",
+  "private": true,
+  "version": "0.1.0",
+  "description": "EventMerge — Nigeria-first event ticketing platform. Merges TruffleEvents (crypto rotating-QR anti-fraud + offline PWA scanning) and EventFlow (intelligent seat allocation + scale-hardened check-in + mobile scanner).",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev:web": "pnpm --filter @eventmerge/web dev",
+    "dev:mobile": "pnpm --filter @eventmerge/mobile start",
+    "dev:security": "cd apps/security-engine && uvicorn main:app --reload --port 8100",
+    "dev:sao": "cd apps/sao-engine && uvicorn main:app --reload --port 8200",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\" --ignore-path .gitignore",
+    "db:migrate": "pnpm --filter @eventmerge/web db:migrate",
+    "db:deploy": "pnpm --filter @eventmerge/web db:deploy",
+    "db:seed": "pnpm --filter @eventmerge/web db:seed",
+    "db:studio": "pnpm --filter @eventmerge/web db:studio"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.0"
+  }
+}
