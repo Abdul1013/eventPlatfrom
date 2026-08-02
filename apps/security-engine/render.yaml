@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: truffle-security-engine
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    rootDir: apps/security-engine
+    plan: free
+    envVars:
+      - key: ENV
+        value: production
+      - key: ENCRYPTION_KEY
+        sync: false        # Set manually in Render dashboard — must match local .env value
+      - key: FRONTEND_URL
+        sync: false        # Set to your Vercel production URL after frontend is deployed
