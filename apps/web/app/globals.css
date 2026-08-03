@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  /* ── EventMerge "Lagos Nightlife" Palette ─────────────────────────────
+     Teal primary + coral accent. Distinct from EventFlow indigo (#4F46E5)
+     and TruffleEvents chocolate (#713600). WCAG AA on all text pairings. */
+  --background: #FBFAF7;         /* Warm off-white */
+  --foreground: #0B1F1D;         /* Deep teal-black (text) */
+  --primary: #0D9488;           /* Deep Teal (buttons, nav) */
+  --primary-foreground: #FFFFFF; /* White on teal */
+  --accent: #FF6B4A;            /* Coral (highlights, CTAs) */
+  --accent-foreground: #2A0A02;  /* Dark on coral */
+  --muted: #E7ECEA;             /* Subtle surfaces / borders */
+  --muted-foreground: #4B5A57;   /* Secondary text */
+  --success: #10B981;           /* Green (Valid scan) */
+  --warning: #F59E0B;           /* Amber (Warning) */
+  --destructive: #EF4444;       /* Red (Invalid/Tampered) */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --font-sans: var(--font-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Lagos Nightlife — dark mode (brighter teal for contrast on dark) */
+    --background: #0B1F1D;         /* Deep teal-black */
+    --foreground: #F3F7F5;         /* Near-white text */
+    --primary: #2DD4BF;           /* Bright teal */
+    --primary-foreground: #06201C; /* Dark on bright teal */
+    --accent: #FF7A5C;            /* Slightly lifted coral */
+    --accent-foreground: #2A0A02;
+    --muted: #16302C;             /* Dark subtle surfaces */
+    --muted-foreground: #9DB2AD;   /* Secondary text on dark */
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+}
+
+/* Apple HIG: Enforce minimum 44x44pt touch targets on mobile */
+@media (max-width: 768px) {
+  button, a[role="button"], [role="button"] {
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    padding: 0.875rem 1rem;
+  }
+
+  input, textarea, select {
+    min-height: 2.75rem;
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Remove global link underlines unless hovering */
+a {
+  @apply no-underline;
+}
+
+a:hover {
+  @apply underline;
+}
+
